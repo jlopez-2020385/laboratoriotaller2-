@@ -78,6 +78,13 @@ JWT_SECRET=<tu_secreto_jwt>
       "surname": "string"
     }
     ```
+- **Actualizar imagen del Usuario**
+  - **URL:** `/adoptionSystem/v1/user/updateProfilePicture/:uid`
+  - **Método:** `PATCH`
+  - **Cuerpo:** `Body  en form-data`
+    ![image](https://github.com/user-attachments/assets/1757e534-38af-4735-b574-0d32f2847133)
+
+    
 
 ### Mascotas
 
@@ -109,6 +116,9 @@ JWT_SECRET=<tu_secreto_jwt>
 
 ### Citas
 
+## Funcionalidades Adicionales Terminadas
+
+
 - **Crear Cita**
   - **URL:** `/adoptionSystem/v1/appointment/createAppointment`
   - **Método:** `POST`
@@ -121,21 +131,14 @@ JWT_SECRET=<tu_secreto_jwt>
     }
     ```
 
-## Funcionalidades Adicionales
+   - - **Listar Citas **
+  - **URL:** `/adoptionSystem/v1/appointment/createAppointment`
+  - **Método:** `POST`
 
-Las siguientes funcionalidades necesitan ser desarrolladas:
+- **Actualizar Citas por ID**
+  - **URL:** `/adoptionSystem/v1/appointment/updateAppointment/:id`
+  - **Método:** `PUT`
 
-1. **Actualizar Foto del Usuario**
-   - Descripción: Implementar funcionalidad para actualizar la foto de perfil del usuario.
-
-2. **Listar Citas**
-   - Descripción: Implementar funcionalidad para listar todas las citas de un usuario.
-
-3. **Actualizar Cita**
-   - Descripción: Implementar funcionalidad para actualizar una cita existente.
-
-4. **Cancelar Cita**
-   - Descripción: Implementar funcionalidad para cancelar una cita existente.
-
-5. **Entrega**
-   - Funcionalidades deben ser parte del código fuente y ser entregadas en tiempo y forma indicada en clase.
+- **Cancelar  Citas  por ID **
+  - **URL:** `/adoptionSystem/v1/appointment/cancelAppointment/:id`
+  - **Método:** `DELETE`
