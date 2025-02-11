@@ -1,7 +1,5 @@
 # API del Sistema de Adopción
 
-Esta API está diseñada para gestionar citas para adopciones de mascotas. Incluye funcionalidades para crear, actualizar y listar citas, así como gestionar la información del usuario.
-
 ## Variables de Entorno
 
 Cree un archivo `.env` en el directorio raíz y agregue las siguientes variables:
@@ -131,7 +129,7 @@ JWT_SECRET=<tu_secreto_jwt>
     }
     ```
 
-   - - **Listar Citas **
+- **Listar Citas **
   - **URL:** `/adoptionSystem/v1/appointment/createAppointment`
   - **Método:** `POST`
 
