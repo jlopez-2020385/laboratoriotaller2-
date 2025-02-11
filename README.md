@@ -112,9 +112,7 @@ JWT_SECRET=<tu_secreto_jwt>
   - **URL:** `/adoptionSystem/v1/pet/`
   - **Método:** `GET`
 
-### Citas
-
-## Funcionalidades Adicionales Terminadas
+## Funcionalidades Adicionales Terminadas de Citas
 
 
 - **Crear Cita**
