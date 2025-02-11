@@ -56,3 +56,96 @@ export const saveAppointment = async (req, res) => {
     }); 
   }
 };
+
+
+export const listappointment = async (req, res)=> {
+  try{
+    const { limite = 5 , desde = 0 } = req.query
+    const query =  {status: "CREATED"}
+    const [total, appointment] = await Promise.all([
+      Appointment.countDocuments(query),
+      Appointment.find(query).skip(Number(desde)).limit(Number(limite))
+  ])
+
+    return res.status(200).json({
+      success: true,
+      total,
+      appointment
+    })
+
+  }catch(err){
+
+    return res.status(500).json({
+      success: false,
+      message: "Error de lista datos no encontrados ",
+      error: err.message
+    })
+
+  }
+
+}
+
+
+
+export const updateAppointment = async (req, res) => {
+  try {
+
+    const { id } = req.params;
+    const data = req.body;
+
+    const updatedAppointment = await Appointment.findByIdAndUpdate(id, data, { new: true });
+
+    if (!updatedAppointment) {
+      return res.status(404).json({
+        success: false,
+        msg: "Cita no encontrada",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      msg: "Cita actualizada exitosamente",
+      appointment: updatedAppointment,
+    });
+
+  } catch (err) {
+
+    return res.status(500).json({
+      success: false,
+      msg: "Error al actualizar la cita",
+      error: err.message,
+    });
+  }
+};
+
+
+export const cancelAppointment = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const appointment = await Appointment.findById(id);
+    if (!appointment) {
+      return res.status(404).json({
+        success: false,
+        msg: "Cita no encontrada",
+      });
+    }
+
+    appointment.status = "CANCELLED";
+    await appointment.save();
+
+    return res.status(200).json({
+      success: true,
+      msg: "Cita cancelada exitosamente",
+      appointment,
+    });
+
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      msg: "Error al cancelar la cita",
+      error: err.message,
+    });
+  }
+};
+
